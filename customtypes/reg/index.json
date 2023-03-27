@@ -1,0 +1,68 @@
+{
+  "id": "reg",
+  "label": "Reg",
+  "repeatable": true,
+  "status": true,
+  "json": {
+      "Main" : {
+        "uid" : {
+          "type" : "UID",
+          "config" : {
+            "label" : "Slug",
+            "placeholder" : "URL slug"
+          }
+        },
+        "name" : {
+          "type" : "StructuredText",
+          "config" : {
+            "single" : "heading1",
+            "label" : "Name",
+            "placeholder" : "Speaker's name"
+          }
+        },
+        "image" : {
+          "type" : "Image",
+          "config" : {
+            "constraint" : {
+              "width" : 300,
+              "height" : 400
+            },
+            "thumbnails" : [ ],
+            "label" : "Image"
+          }
+        },
+        "title" : {
+          "type" : "StructuredText",
+          "config" : {
+            "single" : "heading4",
+            "label" : "Title",
+            "placeholder" : "Role"
+          }
+        },
+        "bio" : {
+          "type" : "StructuredText",
+          "config" : {
+            "single" : "paragraph",
+            "label" : "Bio",
+            "placeholder" : "Bio"
+          }
+        },
+        "link" : {
+          "type" : "Link",
+          "config" : {
+            "label" : "Twitter",
+            "select" : "web",
+            "placeholder" : "Twitter profile URL"
+          }
+        },
+        "talk" : {
+          "type" : "Link",
+          "config" : {
+            "select" : "document",
+            "customtypes" : [ "talk" ],
+            "label" : "Talk"
+          }
+        }
+      }
+  }
+}

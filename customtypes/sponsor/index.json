@@ -1,0 +1,9 @@
+{
+  "id": "sponsor",
+  "label": "Sponsor",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {}
+  }
+}

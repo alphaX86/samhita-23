@@ -6,6 +6,288 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = {
     [KeyType in keyof T]: T[KeyType];
 };
+/** Content for Reg documents */
+type RegDocumentData = Record<string, never>;
+/**
+ * Reg document from Prismic
+ *
+ * - **API ID**: `reg`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type RegDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<RegDocumentData>, "reg", Lang>;
+/** Content for Speaker documents */
+interface SpeakerDocumentData {
+    /**
+     * Name field in *Speaker*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: Speaker's name
+     * - **API ID Path**: speaker.name
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    name: prismicT.TitleField;
+    /**
+     * Image field in *Speaker*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: speaker.image
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
+    /**
+     * Title field in *Speaker*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: Role
+     * - **API ID Path**: speaker.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Company field in *Speaker*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: Company
+     * - **API ID Path**: speaker.company
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    company: prismicT.TitleField;
+    /**
+     * Bio field in *Speaker*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: Bio
+     * - **API ID Path**: speaker.bio
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    bio: prismicT.RichTextField;
+    /**
+     * Twitter field in *Speaker*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: Twitter profile URL
+     * - **API ID Path**: speaker.twitter
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    twitter: prismicT.LinkField;
+    /**
+     * Github field in *Speaker*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: GitHub profile URL
+     * - **API ID Path**: speaker.github
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    github: prismicT.LinkField;
+    /**
+     * Talk field in *Speaker*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: speaker.talk
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    talk: prismicT.RelationField<"talk">;
+}
+/**
+ * Speaker document from Prismic
+ *
+ * - **API ID**: `speaker`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SpeakerDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<SpeakerDocumentData>, "speaker", Lang>;
+/** Content for Sponsor documents */
+type SponsorDocumentData = Record<string, never>;
+/**
+ * Sponsor document from Prismic
+ *
+ * - **API ID**: `sponsor`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SponsorDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<SponsorDocumentData>, "sponsor", Lang>;
+/** Content for Stage documents */
+interface StageDocumentData {
+    /**
+     * Name field in *Stage*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: *None*
+     * - **API ID Path**: stage.name
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    name: prismicT.TitleField;
+    /**
+     * Stream field in *Stage*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: stage.stream
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    stream: prismicT.LinkField;
+    /**
+     * Discord field in *Stage*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: stage.discord
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    discord: prismicT.LinkField;
+    /**
+     * Schedule field in *Stage*
+     *
+     * - **Field Type**: Group
+     * - **Placeholder**: *None*
+     * - **API ID Path**: stage.schedule[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/group
+     *
+     */
+    schedule: prismicT.GroupField<Simplify<StageDocumentDataScheduleItem>>;
+}
+/**
+ * Item in Stage → Schedule
+ *
+ */
+export interface StageDocumentDataScheduleItem {
+    /**
+     * Talk field in *Stage → Schedule*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: stage.schedule[].talk
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    talk: prismicT.RelationField<"talk">;
+}
+/**
+ * Stage document from Prismic
+ *
+ * - **API ID**: `stage`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type StageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<StageDocumentData>, "stage", Lang>;
+/** Content for Talk documents */
+interface TalkDocumentData {
+    /**
+     * Title field in *Talk*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: Talk title
+     * - **API ID Path**: talk.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Speakers field in *Talk*
+     *
+     * - **Field Type**: Group
+     * - **Placeholder**: *None*
+     * - **API ID Path**: talk.speakers[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/group
+     *
+     */
+    speakers: prismicT.GroupField<Simplify<TalkDocumentDataSpeakersItem>>;
+    /**
+     * Start field in *Talk*
+     *
+     * - **Field Type**: Timestamp
+     * - **Placeholder**: *None*
+     * - **API ID Path**: talk.start
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/timestamp
+     *
+     */
+    start: prismicT.TimestampField;
+    /**
+     * End field in *Talk*
+     *
+     * - **Field Type**: Timestamp
+     * - **Placeholder**: *None*
+     * - **API ID Path**: talk.end
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/timestamp
+     *
+     */
+    end: prismicT.TimestampField;
+    /**
+     * Description field in *Talk*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: Talk description
+     * - **API ID Path**: talk.description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Item in Talk → Speakers
+ *
+ */
+export interface TalkDocumentDataSpeakersItem {
+    /**
+     * Speaker field in *Talk → Speakers*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: Add a speaker
+     * - **API ID Path**: talk.speakers[].speaker
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    speaker: prismicT.RelationField<"speaker">;
+}
+/**
+ * Talk document from Prismic
+ *
+ * - **API ID**: `talk`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TalkDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<TalkDocumentData>, "talk", Lang>;
 /** Content for test documents */
 type TestDocumentData = Record<string, never>;
 /**
@@ -18,12 +300,12 @@ type TestDocumentData = Record<string, never>;
  * @typeParam Lang - Language API ID of the document.
  */
 export type TestDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<TestDocumentData>, "test", Lang>;
-export type AllDocumentTypes = TestDocument;
+export type AllDocumentTypes = RegDocument | SpeakerDocument | SponsorDocument | StageDocument | TalkDocument | TestDocument;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { TestDocumentData, TestDocument, AllDocumentTypes };
+        export type { RegDocumentData, RegDocument, SpeakerDocumentData, SpeakerDocument, SponsorDocumentData, SponsorDocument, StageDocumentData, StageDocumentDataScheduleItem, StageDocument, TalkDocumentData, TalkDocumentDataSpeakersItem, TalkDocument, TestDocumentData, TestDocument, AllDocumentTypes };
     }
 }

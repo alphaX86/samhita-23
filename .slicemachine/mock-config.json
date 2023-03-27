@@ -1,5 +1,12 @@
 {
   "_cts": {
-    "test": {}
+    "speaker": {},
+    "stage": {},
+    "talk": {},
+    "sponsor": {},
+    "test": {},
+    "custom_types": {},
+    "test1": {},
+    "reg": {}
   }
 }

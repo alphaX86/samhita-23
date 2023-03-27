@@ -21,7 +21,7 @@ export const BRAND_NAME = 'Samhita 2023';
 export const SITE_NAME_MULTILINE = ['Samhita', ''];
 export const SITE_NAME = 'Samhita - ITA';
 export const META_DESCRIPTION =
-  'This is an open source demo that Next.js developers can clone, deploy, and fully customize for events. Created through collaboration of marketers, designers, and developers at Vercel.';
+  '';
 export const SITE_DESCRIPTION =
   'An interactive online experience by the community, free for everyone.';
 export const DATE = '15-16 April 2023';
@@ -41,11 +41,11 @@ export const REPO = 'https://github.com/vercel/virtual-event-starter-kit';
 export const SAMPLE_TICKET_NUMBER = 1234;
 export const NAVIGATION = [
   {
-    name: 'Workshops',
+    name: 'Events',
     route: '/stage/event-a'
   },
   {
-    name: 'Events',
+    name: 'Workshops',
     route: '/stage/event-b'
   },
   {
@@ -56,13 +56,13 @@ export const NAVIGATION = [
     name: 'Speakers',
     route: '/speakers'
   },
+  //{
+  //  name: 'Sponsors',
+  //  route: '/sponsors'
+  //},
   {
-    name: 'Expo',
-    route: '/expo'
-  },
-  {
-    name: 'Sponsors',
-    route: '/sponsors'
+    name: 'Register',
+    route: '/reg'
   },
   {
     name: 'Contact',

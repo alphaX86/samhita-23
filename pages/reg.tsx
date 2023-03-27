@@ -17,25 +17,41 @@
 import { GetStaticProps } from 'next';
 
 import Page from '@components/page';
+import SpeakersGrid from '@components/speakers-grid';
 import Layout from '@components/layout';
 import Header from '@components/header';
 
+import { getAllReg, getAllSpeakers } from '@lib/cms-api';
+import { Reg, Speaker } from '@lib/types';
 import { META_DESCRIPTION } from '@lib/constants';
 import RegGrid from '@components/reg-grid';
 
-export default function Register() {
+type Props = {
+  speakers: Reg[];
+};
+
+export default function Register({ speakers }: Props) {
   const meta = {
-    title: 'Contact - Virtual Event Starter Kit',
+    title: 'Speakers - Virtual Event Starter Kit',
     description: META_DESCRIPTION
   };
   return (
     <Page meta={meta}>
       <Layout>
-        <Header hero="Contact" description={meta.description} />
-        <hr />
-        <h1>Details</h1>
-
+        <Header hero="Register" description={meta.description} />
+        <RegGrid speakers={speakers} />
       </Layout>
     </Page>
   );
 }
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const speakers = await getAllReg();
+
+  return {
+    props: {
+      speakers
+    },
+    revalidate: 60
+  };
+};

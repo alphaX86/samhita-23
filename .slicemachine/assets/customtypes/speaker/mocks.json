@@ -1,0 +1,92 @@
+{
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "fellow"
+  },
+  "name": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Consequat ullamco velit nostrud pariatur commodo excepteur sunt minim velit reprehenderit."
+        }
+      }
+    ]
+  },
+  "image": {
+    "__TYPE__": "ImageContent",
+    "origin": {
+      "id": "main",
+      "url": "https://images.unsplash.com/photo-1600861194802-a2b11076bc51",
+      "width": 2545,
+      "height": 2545
+    },
+    "url": "https://images.unsplash.com/photo-1600861194802-a2b11076bc51",
+    "width": 2545,
+    "height": 2545,
+    "edit": {
+      "zoom": 1,
+      "crop": {
+        "x": 0,
+        "y": 0
+      },
+      "background": "transparent"
+    },
+    "thumbnails": {}
+  },
+  "title": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Aliquip dolore velit ad. Lorem amet ipsum adipisicing."
+        }
+      }
+    ]
+  },
+  "company": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Eu ex voluptate excepteur nulla dolor qui Lorem consequat laborum. Aute mollit fugiat minim fugiat."
+        }
+      }
+    ]
+  },
+  "bio": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Duis esse nisi qui aliqua irure cupidatat duis irure nulla ullamco commodo officia. Ut sint nostrud nisi cillum aliqua aliquip in ea Lorem culpa labore Lorem occaecat."
+        }
+      }
+    ]
+  },
+  "twitter": {
+    "__TYPE__": "LinkContent",
+    "value": {
+      "__TYPE__": "ExternalLink",
+      "url": "http://google.com"
+    }
+  },
+  "github": {
+    "__TYPE__": "LinkContent",
+    "value": {
+      "__TYPE__": "ExternalLink",
+      "url": "http://google.com"
+    }
+  },
+  "talk": {
+    "__TYPE__": "LinkContent",
+    "value": {
+      "__TYPE__": "ExternalLink",
+      "url": "http://twitter.com"
+    }
+  }
+}

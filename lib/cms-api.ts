@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Job, Sponsor, Stage, Speaker } from '@lib/types';
+import { Job, Sponsor, Stage, Speaker, Reg } from '@lib/types';
 
 import * as strapiApi from './cms-providers/strapi';
 import * as agilityApi from './cms-providers/agility';
@@ -27,6 +27,7 @@ let cmsApi: {
   getAllStages: () => Promise<Stage[]>;
   getAllSponsors: () => Promise<Sponsor[]>;
   getAllJobs: () => Promise<Job[]>;
+  getAllReg: () => Promise<Reg[]>;
 };
 
 if (process.env.DATOCMS_READ_ONLY_API_TOKEN) {
@@ -68,4 +69,8 @@ export async function getAllSponsors(): Promise<Sponsor[]> {
 
 export async function getAllJobs(): Promise<Job[]> {
   return cmsApi.getAllJobs();
+}
+
+export async function getAllReg(): Promise<Reg[]> {
+  return cmsApi.getAllReg();
 }

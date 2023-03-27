@@ -32,6 +32,17 @@ export type Speaker = {
   imageSquare: Image;
 };
 
+export type Reg = {
+  name: string;
+  bio: string;
+  title: string;
+  slug: string;
+  link: string;
+  talk: Talk;
+  image: Image;
+  imageSquare: Image;
+};
+
 export type Stage = {
   name: string;
   slug: string;

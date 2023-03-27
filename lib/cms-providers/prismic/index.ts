@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Job, Sponsor, Stage, Speaker } from '@lib/types';
+import { Job, Sponsor, Stage, Speaker, Reg } from '@lib/types';
 import { richTextAsText, getLinkUrl } from './utils';
 
 const API_REF_URL = `https://${process.env.PRISMIC_REPO_ID}.prismic.io/api/v2`;
@@ -117,6 +117,60 @@ export async function getAllSpeakers(): Promise<Speaker[]> {
 
   return reformatedData;
 }
+
+export async function getAllReg(): Promise<Reg[]> {
+  const data = await fetchCmsAPI(`
+    {
+      allRegs(first: 100) {
+        edges {
+          node {
+            name
+            bio
+            title
+            link {
+              _linkType
+              ...on _ExternalLink {
+                url
+              }
+            }
+            image
+            talk {
+              _linkType
+              ...on  Talk{
+                title
+                description
+              }
+            }
+            _meta {
+              uid
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const reformatedData = data.allRegs.edges.map((edge: any) => {
+    return {
+      name: richTextAsText(edge.node.name),
+      bio: richTextAsText(edge.node.bio),
+      slug: edge.node._meta.uid,
+      title: richTextAsText(edge.node.title),
+      link: getLinkUrl(edge.node.link),
+      image: {
+        url:
+          edge.node.image?.url.replace('compress,format', 'format') || 'https://images.prismic.io'
+      },
+      talk: {
+        title: edge.node.talk?.title ? richTextAsText(edge.node.talk.title) : '',
+        description: edge.node.talk?.description ? richTextAsText(edge.node.talk.description) : ''
+      }
+    };
+  });
+
+  return reformatedData;
+}
+
 
 export async function getAllStages(): Promise<Stage[]> {
   const data = await fetchCmsAPI(`
