@@ -13,7 +13,8 @@
     "dev": "next",
     "start": "next start",
     "build": "next build",
-    "license": "addlicense -l apache -c 'Vercel Inc.' components/**/* lib/**/* pages/**/* styles/**/* *.ts *.js"
+    "license": "addlicense -l apache -c 'Vercel Inc.' components/**/* lib/**/* pages/**/* styles/**/* *.ts *.js",
+    "slicemachine": "start-slicemachine"
   },
   "dependencies": {
     "@100mslive/react-icons": "^0.0.6",
@@ -21,6 +22,10 @@
     "@agility/content-fetch": "1.1.1",
     "@agility/content-sync": "1.0.3",
     "@hcaptcha/react-hcaptcha": "^0.3.7",
+    "@prismicio/client": "^6.7.3",
+    "@prismicio/helpers": "^2.3.9",
+    "@prismicio/react": "^2.5.2",
+    "@prismicio/slice-simulator-react": "^0.2.3",
     "@radix-ui/react-dialog": "0.1.5",
     "@radix-ui/react-dropdown-menu": "0.1.4",
     "@radix-ui/react-tabs": "0.1.4",
@@ -47,6 +52,7 @@
     "vanilla-tilt": "1.7.0"
   },
   "devDependencies": {
+    "@prismicio/types": "^0.2.7",
     "@types/classnames": "2.2.11",
     "@types/cookie": "0.4.0",
     "@types/htmlescape": "1.1.1",
@@ -71,6 +77,7 @@
     "postcss-hover-media-feature": "1.0.0",
     "postcss-preset-env": "6.7.0",
     "prettier": "2.2.1",
+    "slice-machine-ui": "^0.7.1",
     "tailwindcss": "^3.0.1",
     "typescript": "4.3.2"
   }
