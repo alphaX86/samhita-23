@@ -4,7 +4,7 @@
   "private": true,
   "repository": "alphax86/samhita-23",
   "author": "Aadhitya A",
-  "homepage": "https://samhita-23.netlify.app/",
+  "homepage": "https://samhita-23.vercel.app/",
   "license": "Apache-2.0",
   "engines": {
     "node": "^18"
