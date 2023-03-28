@@ -26,7 +26,7 @@ import RegGrid from '@components/reg-grid';
 
 export default function Contact() {
   const meta = {
-    title: 'Contact - Virtual Event Starter Kit',
+    title: 'Contact - Samhita 23',
     description: META_DESCRIPTION
   };
   return (

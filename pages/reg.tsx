@@ -32,7 +32,7 @@ type Props = {
 
 export default function Register({ speakers }: Props) {
   const meta = {
-    title: 'Speakers - Virtual Event Starter Kit',
+    title: 'Speakers - Samhita 23',
     description: META_DESCRIPTION
   };
   return (

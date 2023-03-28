@@ -30,28 +30,15 @@ let cmsApi: {
   getAllReg: () => Promise<Reg[]>;
 };
 
-if (process.env.DATOCMS_READ_ONLY_API_TOKEN) {
-  cmsApi = datoCmsApi;
-} else if (process.env.CONTENTFUL_ACCESS_TOKEN && process.env.CONTENTFUL_SPACE_ID) {
-  cmsApi = contentfulApi;
-} else if (process.env.STORYBLOK_PREVIEW_TOKEN) {
-  cmsApi = storyblokApi;
-} else if (process.env.PRISMIC_REPO_ID) {
+if (process.env.PRISMIC_REPO_ID) {
   cmsApi = prismicApi;
-} else if (
-  process.env.AGILITY_GUID &&
-  process.env.AGILITY_API_FETCH_KEY &&
-  process.env.AGILITY_API_PREVIEW_KEY
-) {
-  cmsApi = agilityApi;
-} else if (process.env.STRAPI_API_URL) {
-  cmsApi = strapiApi;
 } else {
   cmsApi = {
     getAllSpeakers: () => Promise.resolve([]),
     getAllStages: () => Promise.resolve([]),
     getAllSponsors: () => Promise.resolve([]),
-    getAllJobs: () => Promise.resolve([])
+    getAllJobs: () => Promise.resolve([]),
+    getAllReg: () => Promise.resolve([])
   };
 }
 

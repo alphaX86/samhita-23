@@ -28,11 +28,15 @@ export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     document.body.classList?.remove('loading');
   }, []);
+
+  const AppMainComponent = Component as any;
+
   return (
     <SSRProvider>
       <OverlayProvider>
         <HMSRoomProvider>
-          <Component {...pageProps} />
+          
+          <AppMainComponent {...pageProps} />
           <ResizeHandler />
           <NProgress />
         </HMSRoomProvider>

@@ -1,9 +1,9 @@
 {
-  "name": "virtual-event-starter-kit",
-  "description": "Starter kit for your virtual event.",
+  "name": "samhita-23",
+  "description": "Website for samhita 23",
   "private": true,
-  "repository": "vercel/virtual-event-starter-kit",
-  "author": "Vercel Inc.",
+  "repository": "alphax86/samhita-23",
+  "author": "Aadhitya A",
   "homepage": "https://demo.vercel.events",
   "license": "Apache-2.0",
   "engines": {

@@ -31,7 +31,7 @@ type Props = {
 
 export default function RegPage({ speaker }: Props) {
   const meta = {
-    title: 'Register - Virtual Event Starter Kit',
+    title: 'Register - Samhita 23',
     description: META_DESCRIPTION
   };
 
