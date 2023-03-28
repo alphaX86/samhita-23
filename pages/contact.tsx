@@ -34,9 +34,13 @@ export default function Contact() {
       <Layout>
         <Header hero="Contact" description={meta.description} />
         <div className={styles.contact}>
-          Details here...
+        SAMHITA’23 is a 2-day fest comprising of both onsite and online events. 
+        <br />It will offer more than 20 events on various technological levels. It also includes workshops on the latest IT trends.
+        <br />The fest will be held on 15th and 16th April 2023. <br /><br />
+        Contact: Email here <br />
+        Phone: +91 1234567890 <br />
+        Location: Madras Institute of Technology, Chennai - 44, Tamil Nadu, India 
         </div>
-
       </Layout>
     </Page>
   );
