@@ -30,6 +30,7 @@
     "@reach/skip-nav": "0.12.1",
     "@supabase/supabase-js": "^1.35.4",
     "classnames": "2.2.6",
+    "chrome-aws-lambda": "10.1.0",
     "cookie": "0.4.1",
     "date-fns": "2.16.1",
     "fs": "^0.0.1-security",
