@@ -1,6 +1,4 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fvirtual-event-starter-kit&project-name=virtual-event-starter-kit&repository-name=virtual-event-starter-kit&demo-title=Virtual%20Event%20Starter%20Kit&demo-description=Jumpstart%20your%20virtual%20event%20and%20scale%20to%20any%20size%20with%20Next.js%20and%20Vercel.&demo-url=https%3A%2F%2Fdemo.vercel.events%2F&demo-image=https%3A%2F%2Fdemo.vercel.events%2Fdeploy.png&integration-ids=oac_7yeSwUoVR5no3SlA9WM6oR7l)
-
-# Virtual Events Starter Kit
+# Samhita 2023
 
 This virtual event starter kit was used to run [Next.js Conf 2020](https://nextjs.org/2020/conf), which had almost 40,000 live attendees. It includes the following features:
 
@@ -14,12 +12,6 @@ This virtual event starter kit was used to run [Next.js Conf 2020](https://next
 - Speaker pages and bios
 - Schedule
 
-This platform is built upon three principles:
-
-- **Delegation:** Running a conference is difficult – you have to **delegate** tasks to third-parties to ensure success. Certain elements of an online conference experience are tough to get right, and we'd rather lean on established, industry leading solutions.
-- **Flexibility:** While delegating certain elements of the conference experience is helpful, it's also important to own the platform. That's why this template provides a **flexible** open-source codebase that can be modified for your event.
-- **Reducing Risk:** It's inevitable something will go wrong during your event. This platform **reduces risk** by leaning on a dynamic site that outputs as static files using [Incremental Static Generation](https://nextjs.org/docs/basic-features/data-fetching). These static files are cached, ensuring your site is never down. Then, it uses [API Routes](https://nextjs.org/docs/api-routes/introduction) to sprinkle dynamic content on top, which are hosted by a provider with 99.99% uptime.
-
 ---
 
 ## Built With
@@ -27,23 +19,10 @@ This platform is built upon three principles:
 - Framework: [Next.js](https://nextjs.org/)
   - [CSS Modules](https://nextjs.org/docs/basic-features/built-in-css-support)
   - [TypeScript](https://nextjs.org/docs/basic-features/typescript)
-- CMS: [Multiple Options](https://github.com/vercel/virtual-event-starter-kit#cms)
-- Video (Pre-recorded): [YouTube](https://www.youtube.com/)
-- Live interactive video: [100ms](http://www.100ms.live)
-- Deployment: [Vercel](https://vercel.com/)
+- CMS: Prismic CMS
+- Deployment: [Vercel](https://vercel.com/), Netlify
 - Authentication: [GitHub OAuth](https://docs.github.com/en/free-pro-team@latest/developers/apps/authorizing-oauth-apps)
-- Database: [Multiple Options](https://github.com/vercel/virtual-event-starter-kit#database)
-
-## What’s New?
-
-The virtual events starter kit now has added support for organising truly LIVE virtual events. You can quickly setup a live stage and invite speakers to interact with viewers. Live audio-video opens up a ton of possibilities with respect to what you can do with this template. You can use it for:
-
-1. Live Webinars
-2. Community Calls
-3. Hackathons
-4. Panel Discussions
-5. Multi-stage live conferences with a backstage (coming soon)
-
+- Database: Supabase
 ## **Clone and Deploy**
 
 Click the button below to clone and deploy this template on [Vercel](https://vercel.com/).
@@ -73,42 +52,6 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000/) to see the landing page.
-
-### Stages
-
-There are four different stages included in the seed data. Feel free to add or remove these based on your schedule. Each stage can be easily configured to be a Live Video/Audio experience or an embedded YouTube stream. (You can do all of these configurations via DatoCMS console)
-
-### Joining a stage
-
-Visit `/stage/a` after entering your email you should see a "Enter your name" input form.
-
-> NOTE: by default, you will join as a Viewer
-
-![join](/media/join.png)
-
-Click on Join and you should see "No Speakers Present". This is because only you have joined the Stage aka the "Room" as a viewer. A viewer does not have the permission to publish their audio and video. You can read more about roles in the sections below.
-
-![stage.png](/media/stage.png)
-
-### Joining with different Roles
-
-For this we pass a query param in url for eg: `/stage/a?role=<ROLE_NAME>`
-
-- Moderator: `/stage/a?role=backstage`
-
-- Speaker: `/stage/a?role=stage`
-
-- Viewer: `/stage/a`
-
-So if you visit `/stage/a?role=stage` now you should see a Preview screen opening up. After joining you should be able to see yourselves. Open a new tab or invite others to host your next meetup, community calls, etc.
-
-![preview](/media/preview.png)
-
-### Customize
-
-#### Live Video
-
-To learn more on how to customise the live video aspect of this template, refer to [this document](/hms.md).
 
 ### **CMS**
 
