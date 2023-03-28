@@ -47,7 +47,7 @@ export default function RegGrid({ speakers }: Props) {
               <div>
                 <h2 className={styles.name}>{speaker.name}</h2>
                 <p className={styles.title}>
-                  {`${speaker.title} @ `}
+                  {`${speaker.title} `}
                 </p>
               </div>
             </div>
