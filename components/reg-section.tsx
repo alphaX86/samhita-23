@@ -63,19 +63,19 @@ export default function RegSection({ reg }: Props) {
             src={reg.image.url}
             className={styles.image}
             loading="lazy"
-            height={400}
-            width={300}
+            height={200}
+            width={200}
           />
         </div>
         <div className={styles['reg-details']}>
           <div>
             <h1 className={styles.name}>{reg.name}</h1>
             <p className={styles.title}>
-              {`${reg.title} @ `}
+              {`${reg.title} `}
             </p>
-            <h2 className={styles['bio-header']}>Bio</h2>
+            <h2 className={styles['bio-header']}>About</h2>
             <p className={styles.bio}>{reg.bio}</p>
-            <h3 className={styles['socials-header']}>Social Media</h3>
+            <h3 className={styles['socials-header']}>Register</h3>
             {reg.link ? (
               <a
                 aria-label="Register"

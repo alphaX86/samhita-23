@@ -25,7 +25,7 @@ export const META_DESCRIPTION =
 export const SITE_DESCRIPTION =
   'An interactive online experience by the community, free for everyone.';
 export const DATE = '15-16 April 2023';
-export const SHORT_DATE = 'April 15 - 9:00am IST';
+export const SHORT_DATE = 'April 15-16 - 9:00am IST';
 export const FULL_DATE = 'Apr 15th 9am Indian Standard Time (GMT+5:30)';
 export const TWEET_TEXT = META_DESCRIPTION;
 export const COOKIE = 'user-id';
