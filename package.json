@@ -4,7 +4,7 @@
   "private": true,
   "repository": "alphax86/samhita-23",
   "author": "Aadhitya A",
-  "homepage": "https://demo.vercel.events",
+  "homepage": "https://samhita-23.netlify.app/",
   "license": "Apache-2.0",
   "engines": {
     "node": "^18"
@@ -30,7 +30,6 @@
     "@reach/skip-nav": "0.12.1",
     "@supabase/supabase-js": "^1.35.4",
     "classnames": "2.2.6",
-    "chrome-aws-lambda": "10.1.0",
     "cookie": "0.4.1",
     "date-fns": "2.16.1",
     "fs": "^0.0.1-security",
@@ -42,7 +41,6 @@
     "next": "^12.0.10",
     "nprogress": "0.2.0",
     "path": "^0.12.7",
-    "puppeteer-core": "5.5.0",
     "react": "^18.0.0-rc.0",
     "react-aria": "3.2.0",
     "react-dom": "^18.0.0-rc.0",
