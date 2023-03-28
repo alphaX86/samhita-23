@@ -27,7 +27,7 @@ export default function RegGrid({ speakers }: Props) {
   return (
     <div className={styles.grid}>
       {speakers.map(speaker => (
-        <Link key={speaker.name} href={`/speakers/${speaker.slug}`}>
+        <Link key={speaker.name} href={`/reg/${speaker.slug}`}>
           <a role="button" tabIndex={0} className={styles.card}>
             <div className={styles.imageWrapper}>
               <Image

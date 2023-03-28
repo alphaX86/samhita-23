@@ -15,7 +15,7 @@
  */
 
 .schedule {
-  width: 100%;
+  width: 120vh;
   background: var(--sidebar);
   padding: var(--space-8x) var(--space-4x) var(--space-16x);
   color: var(--secondary-color);

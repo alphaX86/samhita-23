@@ -19,6 +19,7 @@ import Image from 'next/image';
 import cn from 'classnames';
 import GithubIcon from '@components/icons/icon-github';
 import { Speaker } from '@lib/types';
+import { getSortedPostsData } from '@lib/posts';
 import styles from './speaker-section.module.css';
 
 const TwitterIcon = () => (

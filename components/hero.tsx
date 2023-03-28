@@ -18,34 +18,78 @@ import cn from 'classnames';
 import styleUtils from './utils.module.css';
 import styles from './hero.module.css';
 import { BRAND_NAME, DATE, SITE_DESCRIPTION } from '@lib/constants';
+import { color } from '@prismicio/helpers/dist/isFilled';
+import { useEffect, useState } from 'react';
+
+function Timer() {
+	const event = new Date("2023-04-15").getTime()
+ 
+	const [days, setDays] = useState("😎")
+	const [hours, setHours] = useState("😎")
+	const [minutes, setMinutes] = useState("😎")
+	const [seconds, setSeconds] = useState("😎")
+ 
+	const [isEventOver, setIsEventOver] = useState(false)
+ 
+	useEffect(() => {
+		const interval = setInterval(() => {
+			const now = new Date().getTime()
+			const distance = event - now
+ 
+			if (distance < 0) {
+				setIsEventOver(true)
+				clearInterval(interval)
+				return
+			}
+ 
+			setDays(Math.floor(distance / (1000 * 60 * 60 * 24)).toString())
+			setHours(
+				Math.floor(
+					(distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+				).toString()
+			)
+			setMinutes(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString())
+			setSeconds(Math.floor((distance % (1000 * 60)) / 1000).toString())
+		}, 1000)
+ 
+		return () => {
+			clearInterval(interval)
+		}
+	}, [event])
+ 
+	return isEventOver ? (
+		<></>
+	) : (
+		<div className={styles.timer}>
+			<div className={styles.timerItem}>
+				<span className={styles.timerNumber}>{days}</span>
+				<span className={styles.timerText}>Days</span>
+			</div>
+			<div className={styles.timerItem}>
+				<span className={styles.timerNumber}>{hours}</span>
+				<span className={styles.timerText}>Hours</span>
+			</div>
+			<div className={styles.timerItem}>
+				<span className={styles.timerNumber}>{minutes}</span>
+				<span className={styles.timerText}>Minutes</span>
+			</div>
+			<div className={styles.timerItem}>
+				<span className={styles.timerNumber}>{seconds}</span>
+				<span className={styles.timerText}>Seconds</span>
+			</div>
+		</div>
+	)
+}
 
 export default function Hero() {
   return (
     <div className={styles.wrapper}>
-      <h2
-        className={cn(
-          styleUtils.appear,
-          styleUtils['appear-third'],
-          styleUtils['show-on-mobile'],
-          styles.description
-        )}
-      >
-        {SITE_DESCRIPTION}
-      </h2>
-      <h1 className={cn(styleUtils.appear, styleUtils['appear-third'], styles.hero)}>
-        Welcome to the
-        <br className={styleUtils['show-on-desktop']} /> {BRAND_NAME} event
-      </h1>
-      <h2
-        className={cn(
-          styleUtils.appear,
-          styleUtils['appear-third'],
-          styleUtils['show-on-tablet'],
-          styles.description
-        )}
-      >
-        {SITE_DESCRIPTION}
-      </h2>
+      
+      <h3 className={cn(styleUtils.appear, styleUtils['appear-third'], styles.herotext)}>
+        Welcome to 
+        <br className={styleUtils['show-on-desktop']} /> {BRAND_NAME} 
+      </h3>
+      
       <div className={cn(styleUtils.appear, styleUtils['appear-fourth'], styles.info)}>
         <p>{DATE}</p>
         <div className={styles['description-separator']} />
@@ -53,6 +97,7 @@ export default function Hero() {
           <strong>Offline</strong>
         </p>
       </div>
+      <Timer />
     </div>
   );
 }

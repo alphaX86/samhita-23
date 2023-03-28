@@ -19,11 +19,12 @@ import { GetStaticProps } from 'next';
 import Page from '@components/page';
 import Layout from '@components/layout';
 import Header from '@components/header';
+import styles from '../components/contact.module.css';
 
 import { META_DESCRIPTION } from '@lib/constants';
 import RegGrid from '@components/reg-grid';
 
-export default function Register() {
+export default function Contact() {
   const meta = {
     title: 'Contact - Virtual Event Starter Kit',
     description: META_DESCRIPTION
@@ -32,8 +33,9 @@ export default function Register() {
     <Page meta={meta}>
       <Layout>
         <Header hero="Contact" description={meta.description} />
-        <hr />
-        <h1>Details</h1>
+        <div className={styles.contact}>
+          Details here...
+        </div>
 
       </Layout>
     </Page>

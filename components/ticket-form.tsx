@@ -222,7 +222,7 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
         </div>
         <div className={formStyles['or-divider']}>OR</div>
         <a
-          href="/stage/a"
+          href="/schedule"
           className={cn(
             formStyles.submit,
             formStyles['generate-with-github'],
@@ -233,7 +233,7 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
             <span className={ticketFormStyles.githubIcon}>
               <InviteStageIcon />
             </span>
-            Go to Live Stage
+            Go to Schedule
           </div>
         </a>
       </div>
