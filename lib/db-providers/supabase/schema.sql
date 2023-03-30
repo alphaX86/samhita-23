@@ -14,3 +14,12 @@ create table github_users (
   "userData" jsonb
 );
 alter table github_users enable row level security;
+
+create table event_reg (
+  id text primary key,
+  email text unique,
+  "ticketNumber" bigserial,
+  type text,
+  "createdAt" timestamp with time zone default timezone('utc'::text, now()) not null
+);
+alter table event_reg enable row level security;

@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 Vercel Inc.
+ * Copyright 2023 alphaX86
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -67,6 +67,14 @@ export async function createGitHubUser(user: any): Promise<string> {
 
   return data.id;
 }
+
+export async function eventRegister(email: string, ticket: string, type:string): Promise<string> {
+  const { data, error } = await supabase!.from('event_Reg').insert({ email, ticket, type }).single();
+  if (error) throw new Error(error.message);
+
+  return data.id;
+}
+
 
 export async function updateUserWithGitHubUser(id: string, token: string): Promise<ConfUser> {
   const { data } = await supabase!.from('github_users').select('userData').eq('id', token).single();
