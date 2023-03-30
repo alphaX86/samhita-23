@@ -106,6 +106,12 @@ export type ConfUser = {
   createdAt?: number | null;
 };
 
+export type RegEvent = {
+  email?: string;
+  ticketNumber?: string | null;
+  type?: string | null;
+}
+
 export type GitHubOAuthData =
   | {
       type: 'token';

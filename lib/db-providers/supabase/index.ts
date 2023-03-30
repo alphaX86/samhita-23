@@ -68,8 +68,8 @@ export async function createGitHubUser(user: any): Promise<string> {
   return data.id;
 }
 
-export async function eventRegister(email: string, ticket: string, type:string): Promise<string> {
-  const { data, error } = await supabase!.from('event_Reg').insert({ email, ticket, type }).single();
+export async function eventRegister(email: string, ticketNumber: string, type:string): Promise<string> {
+  const { data, error } = await supabase!.from('event_reg').insert({ email, ticketNumber, type }).single();
   if (error) throw new Error(error.message);
 
   return data.id;

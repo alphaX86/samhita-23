@@ -26,11 +26,10 @@ let dbApi: {
   getTicketNumberByUserId: (id: string) => Promise<string | null>;
   createGitHubUser: (user: any) => Promise<string>;
   updateUserWithGitHubUser: (id: string, token: string, ticketNumber: string) => Promise<ConfUser>;
+  eventRegister: (email: string, ticketNumber: string, type: string) => Promise<string>;
 };
 
-if (process.env.REDIS_PORT && process.env.REDIS_URL && process.env.EMAIL_TO_ID_SECRET) {
-  dbApi = redisApi;
-} else if (
+if (
   process.env.SUPABASE_URL &&
   process.env.SUPABASE_SERVICE_ROLE_SECRET &&
   process.env.EMAIL_TO_ID_SECRET
@@ -43,7 +42,8 @@ if (process.env.REDIS_PORT && process.env.REDIS_URL && process.env.EMAIL_TO_ID_S
     getUserById: () => Promise.resolve({ ticketNumber: SAMPLE_TICKET_NUMBER }),
     getTicketNumberByUserId: () => Promise.resolve(null),
     createGitHubUser: () => Promise.resolve(''),
-    updateUserWithGitHubUser: () => Promise.resolve({ ticketNumber: SAMPLE_TICKET_NUMBER })
+    updateUserWithGitHubUser: () => Promise.resolve({ ticketNumber: SAMPLE_TICKET_NUMBER }),
+    eventRegister: () => Promise.resolve('')
   };
 }
 
@@ -65,6 +65,10 @@ export async function getTicketNumberByUserId(id: string): Promise<string | null
 
 export async function createGitHubUser(user: any): Promise<string> {
   return dbApi.createGitHubUser(user);
+}
+
+export async function eventRegister(email: string, ticketNumber: string, type: string): Promise<string> {
+  return dbApi.eventRegister(email, ticketNumber, type);
 }
 
 export async function updateUserWithGitHubUser(

@@ -37,9 +37,11 @@ export default function Contact() {
         SAMHITA’23 is a 2-day fest comprising of both onsite and online events. 
         <br />It will offer more than 20 events on various technological levels. It also includes workshops on the latest IT trends.
         <br />The fest will be held on 15th and 16th April 2023. <br /><br />
-        Contact: Email here <br />
-        Phone: +91 1234567890 <br />
-        Location: Madras Institute of Technology, Chennai - 44, Tamil Nadu, India 
+        Contact: <a className="text-white" href="mailto:">Mail here</a> <br />
+        Phone: <a className="text-white" href="tel:">+91 1234567890</a><br />
+        Location: Madras Institute of Technology, <br />
+        MIT Road, Radha Nagar, Chromepet, Chennai - 44, Tamil Nadu, India <br />
+        Site developed by <a className="text-white" href='https://github.com/alphax86'>@alphaX86</a>
         </div>
       </Layout>
     </Page>

@@ -16,9 +16,9 @@ create table github_users (
 alter table github_users enable row level security;
 
 create table event_reg (
-  id text primary key,
-  email text unique,
-  "ticketNumber" bigserial,
+  id uuid primary key default uuid_generate_v4(),
+  email text,
+  "ticketNumber" text,
   type text,
   "createdAt" timestamp with time zone default timezone('utc'::text, now()) not null
 );
