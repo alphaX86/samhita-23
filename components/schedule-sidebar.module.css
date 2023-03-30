@@ -63,3 +63,15 @@
     --talk-card-width: unset;
   }
 }
+
+@media (max-width: 800px) {
+  .schedule {
+    width: auto;
+    background: var(--sidebar);
+    color: var(--secondary-color);
+    font-size: 14px;
+    min-height: 40vh;
+    height: auto;
+    --talk-card-width: 100%;
+  }
+}
