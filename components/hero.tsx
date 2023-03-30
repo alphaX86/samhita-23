@@ -97,7 +97,9 @@ export default function Hero() {
           <strong>Offline</strong>
         </p>
       </div>
-      <Timer />
+	  <div className={cn(styleUtils.appear, styleUtils['appear-fifth'], styles.timer)}>
+      	<Timer />
+	  </div>
     </div>
   );
 }

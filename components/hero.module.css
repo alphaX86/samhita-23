@@ -116,7 +116,7 @@
   font-weight: 500;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .hero {
     font-size: 100px;
     line-height: 1;
@@ -133,5 +133,79 @@
     font-size: var(--space-8x);
     max-width: 531px;
     margin: 40px auto;
+  }
+
+  .timer {
+    display: flex;
+    flex: auto;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: auto;
+  }
+  
+  .timerItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0.5rem;
+    background-color: #ffffff08;
+    border-radius: 0.5rem;
+    padding: 0.4rem 0.4rem;
+    height: 2rem;
+    min-width: 100px;
+  }
+  
+  .timerNumber {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-right: 1rem;
+    min-width: 1ch;
+    text-align: center;
+  }
+  
+  .timerText {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 565px) {
+  
+  .timer {
+    display: flex;
+    flex: auto;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: auto;
+  }
+  
+  .timerItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0.5rem;
+    background-color: #ffffff08;
+    border-radius: 0.5rem;
+    padding: 0.4rem 0.4rem;
+    height: 2rem;
+    min-width: auto;
+  }
+  
+  .timerNumber {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-right: auto;
+    min-width: 30px;
+    padding: auto;
+    text-align: center;
+  }
+  
+  .timerText {
+    font-size: 1rem;
+    font-weight: 500;
   }
 }
