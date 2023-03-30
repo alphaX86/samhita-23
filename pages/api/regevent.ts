@@ -15,9 +15,21 @@
  */
 
 import { NextApiRequest, NextApiResponse } from 'next';
-import { getTicketNumberByUserId, updateUserWithGitHubUser } from '@lib/db-api';
+import { RegEvent } from '@lib/types';
+import validator from 'validator';
+import { eventRegister,  } from '@lib/db-api';
 
-export default async function saveGithubToken(req: NextApiRequest, res: NextApiResponse) {
+type ErrorResponse = {
+  error: {
+    code: string;
+    message: string;
+  };
+};
+
+export default async function regEvent(
+  req: NextApiRequest,
+  res: NextApiResponse<RegEvent | ErrorResponse>
+) {
   if (req.method !== 'POST') {
     return res.status(501).json({
       error: {
@@ -27,23 +39,26 @@ export default async function saveGithubToken(req: NextApiRequest, res: NextApiR
     });
   }
 
-  const body = req.body;
-
-  if (!body.token || !body.id) {
+  const email: string = ((req.body.email as string) || '').trim().toLowerCase();
+  const ticket: string = req.body.ticketNumber as string;
+  const type: string = req.body.type as string;
+  if (!validator.isEmail(email)) {
     return res.status(400).json({
       error: {
-        code: 'bad_input',
-        message: 'Invalid parameters'
+        code: 'bad_email',
+        message: 'Invalid email'
       }
     });
   }
 
-  const ticketNumber = await getTicketNumberByUserId(body.id);
-  if (!ticketNumber) {
-    return res.status(404).json({ code: 'invalid_id', message: 'The registration does not exist' });
-  }
+  // let createdAt: number = Date.now();
+  let statusCode = 200;
+  
+  const newReg = await eventRegister(email, ticket, type);
+  statusCode = 200;
 
-  const { username, name } = await updateUserWithGitHubUser(body.id, body.token, ticketNumber);
-
-  res.json({ username, name });
+  return res.status(statusCode).json({
+    email,
+    type
+  });
 }

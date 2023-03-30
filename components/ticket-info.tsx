@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 Vercel Inc.
+ * Copyright 2023 alphaX86
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@
 import styles from './ticket-info.module.css';
 import styleUtils from './utils.module.css';
 import Logo from './logo';
+import pic from '../public/icon-192x192.png'
 import { DATE, SITE_URL } from '@lib/constants';
 import VercelLogo from '@components/icons/icon-platform';
 
@@ -32,7 +33,7 @@ export default function TicketInfo({ logoTextSecondaryColor = 'var(--accents-5)'
   return (
     <div className={styles.info}>
       <div className={styles.logo}>
-        <Logo textSecondaryColor={logoTextSecondaryColor} />
+      <img src="https://raw.githubusercontent.com/alphaX86/samhita-23/main/public/apple-touch-icon.png" alt='logo' width="60px" height="60px"/>
       </div>
       <div className={styles.date}>
         <div>{DATE}</div>

@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 Vercel Inc.
+ * Copyright 2023 alphaX86
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -105,6 +105,12 @@ export type ConfUser = {
   username?: string | null;
   createdAt?: number | null;
 };
+
+export type RegEvent = {
+  email?: string;
+  ticketNumber?: string | null;
+  type?: string | null;
+}
 
 export type GitHubOAuthData =
   | {

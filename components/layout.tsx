@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 Vercel Inc.
+ * Copyright 2023 alphaX86
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -57,7 +57,7 @@ export default function Layout({
               <Link href="/">
                 {/* eslint-disable-next-line */}
                 <a className={styles.logo}>
-                  <Logo />
+                  <img src="https://raw.githubusercontent.com/alphaX86/samhita-23/main/public/apple-touch-icon.png" alt='logo' width="50px" height="50px"/>
                 </a>
               </Link>
             </div>
