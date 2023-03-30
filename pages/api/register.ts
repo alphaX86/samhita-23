@@ -88,6 +88,9 @@ export default async function register(
     statusCode = 200;
   } else {
     const newUser = await createUser(id, email);
+    // eslint-disable-next-line @typescript-eslint/prefer-regexp-exec
+    const temp = email.match(/^([^@]*)@/);
+    name = temp ? temp[1] : null;
     ticketNumber = newUser.ticketNumber!;
     createdAt = newUser.createdAt!;
     statusCode = 201;
