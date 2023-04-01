@@ -81,7 +81,7 @@ export async function getAllSpeakers(): Promise<Speaker[]> {
             image
             talk {
               _linkType
-              ...on  talk{
+              ...on Talk{
                 title
                 description
               }
@@ -136,7 +136,7 @@ export async function getAllReg(): Promise<Reg[]> {
             image
             talk {
               _linkType
-              ...on  talk{
+              ...on  Talk{
                 title
                 description
               }
@@ -144,6 +144,8 @@ export async function getAllReg(): Promise<Reg[]> {
             _meta {
               uid
             }
+            location
+            organisers
           }
         }
       }
@@ -157,6 +159,8 @@ export async function getAllReg(): Promise<Reg[]> {
       slug: edge.node._meta.uid,
       title: richTextAsText(edge.node.title),
       link: getLinkUrl(edge.node.link),
+      location: richTextAsText(edge.node.location),
+      organisers: richTextAsText(edge.node.organisers),
       image: {
         url:
           edge.node.image?.url.replace('compress,format', 'format') || 'https://images.prismic.io'
@@ -201,6 +205,7 @@ export async function getAllStages(): Promise<Stage[]> {
                   title
                   start
                   end
+                  linkid
                   speakers {
                     speaker {
                       ...on Speaker {
@@ -276,6 +281,7 @@ export async function getAllEvents(): Promise<Event[]> {
                   title
                   start
                   end
+                  linkid
                   speakers {
                     speaker {
                       ...on Speaker {
@@ -310,6 +316,7 @@ export async function getAllEvents(): Promise<Event[]> {
               title: richTextAsText(item.talk.title),
               start: item.talk.start,
               end: item.talk.end,
+              linkid: richTextAsText(item.talk.linkid),
               speaker: item.talk.speakers.map((item: any) => ({
                 name: richTextAsText(item.speaker.name),
                 slug: item.speaker._meta.uid,
@@ -352,6 +359,7 @@ export async function getAllWorkshops(): Promise<Workshop[]> {
                   title
                   start
                   end
+                  linkid
                   speakers {
                     speaker {
                       ...on Speaker {
@@ -386,6 +394,7 @@ export async function getAllWorkshops(): Promise<Workshop[]> {
               title: richTextAsText(item.talk.title),
               start: item.talk.start,
               end: item.talk.end,
+              linkid: richTextAsText(item.talk.linkid),
               speaker: item.talk.speakers.map((item: any) => ({
                 name: richTextAsText(item.speaker.name),
                 slug: item.speaker._meta.uid,

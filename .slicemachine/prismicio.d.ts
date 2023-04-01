@@ -59,15 +59,15 @@ interface EventDocumentData {
  */
 export interface EventDocumentDataScheduleItem {
     /**
-     * Reg field in *Event → Schedule*
+     * Talk field in *Event → Schedule*
      *
      * - **Field Type**: Content Relationship
      * - **Placeholder**: *None*
-     * - **API ID Path**: event.schedule[].reg
+     * - **API ID Path**: event.schedule[].talk
      * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
      *
      */
-    reg: prismicT.RelationField<"reg">;
+    talk: prismicT.RelationField<"talk">;
 }
 /**
  * Event document from Prismic
@@ -137,16 +137,38 @@ interface RegDocumentData {
      */
     link: prismicT.LinkField;
     /**
-     * Reg field in *Reg*
+     * Talk field in *Reg*
      *
      * - **Field Type**: Content Relationship
      * - **Placeholder**: *None*
-     * - **API ID Path**: reg.reg
+     * - **API ID Path**: reg.talk
      * - **Tab**: Main
      * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
      *
      */
-    reg: prismicT.RelationField<"reg">;
+    talk: prismicT.RelationField<"talk">;
+    /**
+     * Location field in *Reg*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: reg.location
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    location: prismicT.RichTextField;
+    /**
+     * Organisers field in *Reg*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: reg.organisers
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    organisers: prismicT.RichTextField;
 }
 /**
  * Reg document from Prismic
@@ -457,6 +479,17 @@ interface TalkDocumentData {
      *
      */
     description: prismicT.RichTextField;
+    /**
+     * linkID field in *Talk*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: talk.linkid
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    linkid: prismicT.RichTextField;
 }
 /**
  * Item in Talk → Speakers

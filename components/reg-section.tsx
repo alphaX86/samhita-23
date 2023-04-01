@@ -37,7 +37,7 @@ type Props = {
 export default function RegSection({ reg }: Props) {
   return (
     <>
-      <Link href="/reg">
+      <Link href="/">
         <a className={styles.backlink}>
           <svg
             viewBox="0 0 24 24"
@@ -52,7 +52,7 @@ export default function RegSection({ reg }: Props) {
           >
             <path d="M15 18l-6-6 6-6" />
           </svg>
-          Back to registration
+          Back to home
         </a>
       </Link>
       <div key={reg.name} className={styles.container}>
@@ -75,6 +75,10 @@ export default function RegSection({ reg }: Props) {
             </p>
             <h2 className={styles['bio-header']}>About</h2>
             <p className={styles.bio}>{reg.bio}</p>
+            <h2 className={styles['bio-header']}>Location</h2>
+            <p className={styles.bio}>{reg.location}</p>
+            <h2 className={styles['bio-header']}>Organisers</h2>
+            <p className={styles.bio}>{reg.organisers}</p>
             <h3 className={styles['socials-header']}>Register</h3>
             {reg.link ? (
               <a
@@ -93,12 +97,6 @@ export default function RegSection({ reg }: Props) {
           </div>
         </div>
       </div>
-      {reg.talk && (
-        <div className={styles['talk-details']}>
-          <h3 className={styles['socials-header']}>{reg.talk.title}</h3>
-          <p>{reg.talk.description}</p>
-        </div>
-      )}
     </>
   );
 }
