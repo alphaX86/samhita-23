@@ -201,7 +201,7 @@ export async function getAllStages(): Promise<Stage[]> {
             schedule {
               talk {
                 _linkType
-                ...on talk {
+                ...on Talk {
                   title
                   start
                   end
@@ -240,6 +240,7 @@ export async function getAllStages(): Promise<Stage[]> {
               title: richTextAsText(item.talk.title),
               start: item.talk.start,
               end: item.talk.end,
+              linkid: item.talk.linkid,
               speaker: item.talk.speakers.map((item: any) => ({
                 name: richTextAsText(item.speaker.name),
                 slug: item.speaker._meta.uid,
