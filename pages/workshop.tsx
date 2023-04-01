@@ -14,61 +14,44 @@
  * limitations under the License.
  */
 
-import { GetStaticProps, GetStaticPaths } from 'next';
+import { GetStaticProps } from 'next';
 
 import Page from '@components/page';
-//import SpeakerSection from '@components/speaker-section';
+import WorkshopT from '@components/workshop';
 import Layout from '@components/layout';
+import Header from '@components/header';
 
-import { getAllReg } from '@lib/cms-api';
-import { Reg } from '@lib/types';
+import { getAllWorkshops } from '@lib/cms-api';
+import { Workshop } from '@lib/types';
 import { META_DESCRIPTION } from '@lib/constants';
-import RegSection from '@components/reg-section';
 
 type Props = {
-    speaker: Reg;
+  allWorkshops: Workshop[];
 };
 
-export default function RegPage({ speaker }: Props) {
+export default function WorkshopPage({ allWorkshops }: Props) {
   const meta = {
-    title: 'Event Details - Samhita 23',
+    title: 'Workshops - Samhita 23',
     description: META_DESCRIPTION
   };
 
   return (
     <Page meta={meta}>
       <Layout>
-        <RegSection reg={speaker} />
+        <Header hero="Workshops" description={meta.description} />
+        <WorkshopT allworkshops={allWorkshops} />
       </Layout>
     </Page>
   );
 }
 
-export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-  const slug = params?.slug;
-  const reg = await getAllReg();
-  const currentSpeaker = reg.find((s: Reg) => s.slug === slug) || null;
-
-  if (!currentSpeaker) {
-    return {
-      notFound: true
-    };
-  }
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const allWorkshops = await getAllWorkshops();
 
   return {
     props: {
-      speaker: currentSpeaker
+      allWorkshops
     },
     revalidate: 60
-  };
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const speakers = await getAllReg();
-  const slugs = speakers.map((s: Reg) => ({ params: { slug: s.slug } }));
-
-  return {
-    paths: slugs,
-    fallback: false
   };
 };

@@ -31,10 +31,10 @@
   max-width: var(--talk-card-width, 270px);
   padding: 1px;
   background-clip: content-box, border-box;
-  background-image: linear-gradient(#111111, #111111), linear-gradient(to right, #333333, #333333);
+  background-image: linear-gradient(#111111, #111111), linear-gradient(to right, rgb(96, 96, 96), rgb(137, 137, 137));
 }
 .card:hover {
-  background-image: linear-gradient(#111111, #111111), linear-gradient(to right, #aaa, #aaa);
+  background-image: linear-gradient(#111111, #111111), linear-gradient(to right, rgb(169, 144, 0), rgb(182, 182, 0));
 }
 
 .is-live {
@@ -49,7 +49,7 @@
 .title {
   font-size: 14px;
   font-weight: 700;
-  color: #e5e5e5;
+  color: var(--brand-light);
   margin: 0;
   line-height: 1.4;
   width: 100%;

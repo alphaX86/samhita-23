@@ -1,1 +1,96 @@
-{}
+{
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "nine"
+  },
+  "name": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "heading1",
+        "content": {
+          "text": "Slope"
+        }
+      }
+    ]
+  },
+  "image": {
+    "__TYPE__": "ImageContent",
+    "origin": {
+      "id": "main",
+      "url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
+      "width": 3212,
+      "height": 3880
+    },
+    "url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?rect=151%2C0%2C2910%2C3880&w=300&h=400",
+    "width": 300,
+    "height": 400,
+    "edit": {
+      "zoom": 1,
+      "crop": {
+        "x": 151,
+        "y": 0
+      },
+      "background": "transparent"
+    },
+    "thumbnails": {}
+  },
+  "title": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "heading4",
+        "content": {
+          "text": "Involved"
+        }
+      }
+    ]
+  },
+  "bio": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Esse nulla cillum proident ut fugiat et laborum voluptate."
+        }
+      }
+    ]
+  },
+  "link": {
+    "__TYPE__": "LinkContent",
+    "value": {
+      "__TYPE__": "ExternalLink",
+      "url": "https://slicemachine.dev"
+    }
+  },
+  "reg": {
+    "__TYPE__": "LinkContent",
+    "value": {
+      "__TYPE__": "DocumentLink",
+      "id": "mock_document_id"
+    }
+  },
+  "location": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Anim duis ad nulla commodo laborum labore aliqua minim aute non reprehenderit quis voluptate nisi. Magna eiusmod duis do proident ut esse aute tempor Lorem duis ad."
+        }
+      }
+    ]
+  },
+  "organisers": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Voluptate aliquip fugiat quis reprehenderit amet Lorem adipisicing veniam incididunt."
+        }
+      }
+    ]
+  }
+}

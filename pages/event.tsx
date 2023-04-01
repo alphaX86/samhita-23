@@ -14,61 +14,44 @@
  * limitations under the License.
  */
 
-import { GetStaticProps, GetStaticPaths } from 'next';
+import { GetStaticProps } from 'next';
 
 import Page from '@components/page';
-//import SpeakerSection from '@components/speaker-section';
+import EventT from '@components/event';
 import Layout from '@components/layout';
+import Header from '@components/header';
 
-import { getAllReg } from '@lib/cms-api';
-import { Reg } from '@lib/types';
+import { getAllEvents } from '@lib/cms-api';
+import { Event } from '@lib/types';
 import { META_DESCRIPTION } from '@lib/constants';
-import RegSection from '@components/reg-section';
 
 type Props = {
-    speaker: Reg;
+  allEvents: Event[];
 };
 
-export default function RegPage({ speaker }: Props) {
+export default function EventPage({ allEvents }: Props) {
   const meta = {
-    title: 'Event Details - Samhita 23',
+    title: 'Events - Samhita 23',
     description: META_DESCRIPTION
   };
 
   return (
     <Page meta={meta}>
       <Layout>
-        <RegSection reg={speaker} />
+        <Header hero="Events" description={meta.description} />
+        <EventT allevents={allEvents} />
       </Layout>
     </Page>
   );
 }
 
-export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-  const slug = params?.slug;
-  const reg = await getAllReg();
-  const currentSpeaker = reg.find((s: Reg) => s.slug === slug) || null;
-
-  if (!currentSpeaker) {
-    return {
-      notFound: true
-    };
-  }
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const allEvents = await getAllEvents();
 
   return {
     props: {
-      speaker: currentSpeaker
+      allEvents
     },
     revalidate: 60
-  };
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const speakers = await getAllReg();
-  const slugs = speakers.map((s: Reg) => ({ params: { slug: s.slug } }));
-
-  return {
-    paths: slugs,
-    fallback: false
   };
 };
