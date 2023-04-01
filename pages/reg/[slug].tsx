@@ -31,7 +31,7 @@ type Props = {
 
 export default function RegPage({ speaker }: Props) {
   const meta = {
-    title: 'Register - Samhita 23',
+    title: 'Event Details - Samhita 23',
     description: META_DESCRIPTION
   };
 

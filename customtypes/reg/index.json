@@ -55,14 +55,32 @@
           "placeholder": "Twitter profile URL"
         }
       },
-      "reg": {
+      "talk": {
         "type": "Link",
         "config": {
-          "label": "Reg",
+          "label": "Talk",
           "select": "document",
           "customtypes": [
-            "reg"
+            "talk"
           ]
+        }
+      },
+      "location": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Location",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "organisers": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Organisers",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       }
     }

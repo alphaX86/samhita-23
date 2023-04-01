@@ -1,1 +1,65 @@
-{}
+{
+  "title": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "heading1",
+        "content": {
+          "text": "Motor"
+        }
+      }
+    ]
+  },
+  "speakers": {
+    "__TYPE__": "GroupContentType",
+    "value": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "speaker",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "DocumentLink",
+                "id": "mock_document_id"
+              }
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  "start": {
+    "__TYPE__": "FieldContent",
+    "type": "Timestamp",
+    "value": "2017-12-03T19:18:02Z"
+  },
+  "end": {
+    "__TYPE__": "FieldContent",
+    "type": "Timestamp",
+    "value": "2018-05-20T09:00:47Z"
+  },
+  "description": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Veniam ex officia sint est magna sit culpa anim dolor ea do sit pariatur laborum."
+        }
+      }
+    ]
+  },
+  "linkid": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Fugiat id excepteur adipisicing irure esse cillum nisi ipsum laborum reprehenderit culpa officia adipisicing amet."
+        }
+      }
+    ]
+  }
+}

@@ -38,6 +38,8 @@ export type Reg = {
   title: string;
   slug: string;
   link: string;
+  location: string;
+  organisers: string;
   reg: Reg;
   image: Image;
   imageSquare: Image;
@@ -85,6 +87,7 @@ export type Talk = {
   start: string;
   end: string;
   speaker: Speaker[];
+  linkID: string;
 };
 
 export type Link = {
