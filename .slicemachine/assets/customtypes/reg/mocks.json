@@ -1,1 +1,74 @@
-{}
+{
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "slope"
+  },
+  "name": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "heading1",
+        "content": {
+          "text": "There"
+        }
+      }
+    ]
+  },
+  "image": {
+    "__TYPE__": "ImageContent",
+    "origin": {
+      "id": "main",
+      "url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb",
+      "width": 3958,
+      "height": 3958
+    },
+    "url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb?rect=495%2C0%2C2969%2C3958&w=300&h=400",
+    "width": 300,
+    "height": 400,
+    "edit": {
+      "zoom": 1,
+      "crop": {
+        "x": 495,
+        "y": 0
+      },
+      "background": "transparent"
+    },
+    "thumbnails": {}
+  },
+  "title": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "heading4",
+        "content": {
+          "text": "Search"
+        }
+      }
+    ]
+  },
+  "bio": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Id tempor veniam deserunt aute cupidatat."
+        }
+      }
+    ]
+  },
+  "link": {
+    "__TYPE__": "LinkContent",
+    "value": {
+      "__TYPE__": "ExternalLink",
+      "url": "http://google.com"
+    }
+  },
+  "reg": {
+    "__TYPE__": "LinkContent",
+    "value": {
+      "__TYPE__": "DocumentLink",
+      "id": "mock_document_id"
+    }
+  }
+}

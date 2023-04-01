@@ -38,7 +38,7 @@ export type Reg = {
   title: string;
   slug: string;
   link: string;
-  talk: Talk;
+  reg: Reg;
   image: Image;
   imageSquare: Image;
 };
@@ -48,6 +48,30 @@ export type Stage = {
   slug: string;
   stream: string;
   discord: string;
+  schedule: Talk[];
+  isLive: boolean;
+  roomId: string;
+  stagePeers: string[];
+  backstagePeers: string[];
+};
+
+export type Event = {
+  name: string;
+  slug: string;
+  location: string;
+  chat: string;
+  schedule: Talk[];
+  isLive: boolean;
+  roomId: string;
+  stagePeers: string[];
+  backstagePeers: string[];
+};
+
+export type Workshop = {
+  name: string;
+  slug: string;
+  location: string;
+  chat: string;
   schedule: Talk[];
   isLive: boolean;
   roomId: string;

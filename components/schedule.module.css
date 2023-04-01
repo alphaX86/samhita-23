@@ -49,6 +49,32 @@
   color: var(--brand);
 }
 
+.event-name {
+  font-size: 22px;
+  color: #fff;
+  line-height: 1.15;
+  letter-spacing: -0.05em;
+  font-weight: 800;
+  min-width: 220px;
+  padding-bottom: var(--space-2x);
+  position: absolute;
+  left: initial;
+  color: var(--brand);
+}
+
+.workshop-name {
+  font-size: 22px;
+  color: #fff;
+  line-height: 1.15;
+  letter-spacing: -0.05em;
+  font-weight: 800;
+  min-width: 220px;
+  padding-bottom: var(--space-2x);
+  position: absolute;
+  left: initial;
+  color: var(--brand);
+}
+
 .talks {
   display: flex;
   flex-direction: row;
@@ -78,6 +104,22 @@
   }
 
   .stage-name {
+    font-size: var(--space-8x);
+    position: sticky;
+    left: 0;
+    padding-left: var(--space-8x);
+    z-index: 1;
+  }
+
+  .event-name {
+    font-size: var(--space-8x);
+    position: sticky;
+    left: 0;
+    padding-left: var(--space-8x);
+    z-index: 1;
+  }
+
+  .workshop-name {
     font-size: var(--space-8x);
     position: sticky;
     left: 0;

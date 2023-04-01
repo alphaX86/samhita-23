@@ -25,6 +25,9 @@ module.exports = {
           400: 'var(--brand-dark)'
         }
       },
+      backgroundImage: {
+        'grid-pattern': "url('../public/bg-grid.jpg')", 
+      },
       fontSize: {
         xxs: '10px',
         xs: 'var(--text-xs)',

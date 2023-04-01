@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Job, Sponsor, Stage, Speaker, Reg } from '@lib/types';
+import { Job, Sponsor, Stage, Speaker, Reg, Event, Workshop } from '@lib/types';
 import { richTextAsText, getLinkUrl } from './utils';
 
 const API_REF_URL = `https://${process.env.PRISMIC_REPO_ID}.prismic.io/api/v2`;
@@ -81,7 +81,7 @@ export async function getAllSpeakers(): Promise<Speaker[]> {
             image
             talk {
               _linkType
-              ...on  Talk{
+              ...on  talk{
                 title
                 description
               }
@@ -136,7 +136,7 @@ export async function getAllReg(): Promise<Reg[]> {
             image
             talk {
               _linkType
-              ...on  Talk{
+              ...on  talk{
                 title
                 description
               }
@@ -197,7 +197,7 @@ export async function getAllStages(): Promise<Stage[]> {
             schedule {
               talk {
                 _linkType
-                ...on Talk {
+                ...on talk {
                   title
                   start
                   end
@@ -251,6 +251,158 @@ export async function getAllStages(): Promise<Stage[]> {
 
   return reformatedData;
 }
+
+export async function getAllEvents(): Promise<Event[]> {
+  const data = await fetchCmsAPI(`
+    {
+      allEvents(first: 100, sortBy: name_ASC) {
+        edges {
+          node {
+            name
+            _meta {
+              uid
+            }
+            location 
+            chat {
+              _linkType
+              ...on _ExternalLink {
+                url
+              }
+            }
+            schedule {
+              talk {
+                _linkType
+                ...on Talk {
+                  title
+                  start
+                  end
+                  speakers {
+                    speaker {
+                      ...on Speaker {
+                        name
+                        _meta {
+                          uid
+                        }
+                        image
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const reformatedData = data.allEvents.edges.map((edge: any) => {
+    return {
+      name: richTextAsText(edge.node.name),
+      slug: edge.node._meta.uid,
+      location: richTextAsText(edge.node.location),
+      chat: getLinkUrl(edge.node.chat),
+      schedule: edge.node.schedule
+        .filter((item: any) => item.talk)
+        .map((item: any) => {
+          if (item.talk)
+            return {
+              title: richTextAsText(item.talk.title),
+              start: item.talk.start,
+              end: item.talk.end,
+              speaker: item.talk.speakers.map((item: any) => ({
+                name: richTextAsText(item.speaker.name),
+                slug: item.speaker._meta.uid,
+                image: {
+                  url:
+                    item.speaker.image?.url.replace('compress,format', 'format') ||
+                    'https://images.prismic.io'
+                }
+              }))
+            };
+        })
+    };
+  });
+
+  return reformatedData;
+}
+
+
+export async function getAllWorkshops(): Promise<Workshop[]> {
+  const data = await fetchCmsAPI(`
+    {
+      allWorkshops(first: 100, sortBy: name_ASC) {
+        edges {
+          node {
+            name
+            _meta {
+              uid
+            }
+            location
+            chat {
+              _linkType
+              ...on _ExternalLink {
+                url
+              }
+            }
+            schedule {
+              talk {
+                _linkType
+                ...on Talk {
+                  title
+                  start
+                  end
+                  speakers {
+                    speaker {
+                      ...on Speaker {
+                        name
+                        _meta {
+                          uid
+                        }
+                        image
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const reformatedData = data.allWorkshops.edges.map((edge: any) => {
+    return {
+      name: richTextAsText(edge.node.name),
+      slug: edge.node._meta.uid,
+      location: richTextAsText(edge.node.location),
+      chat: getLinkUrl(edge.node.chat),
+      schedule: edge.node.schedule
+        .filter((item: any) => item.talk)
+        .map((item: any) => {
+          if (item.talk)
+            return {
+              title: richTextAsText(item.talk.title),
+              start: item.talk.start,
+              end: item.talk.end,
+              speaker: item.talk.speakers.map((item: any) => ({
+                name: richTextAsText(item.speaker.name),
+                slug: item.speaker._meta.uid,
+                image: {
+                  url:
+                    item.speaker.image?.url.replace('compress,format', 'format') ||
+                    'https://images.prismic.io'
+                }
+              }))
+            };
+        })
+    };
+  });
+
+  return reformatedData;
+}
+
 
 export async function getAllSponsors(): Promise<Sponsor[]> {
   const data = await fetchCmsAPI(`
