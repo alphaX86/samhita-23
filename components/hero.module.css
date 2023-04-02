@@ -209,3 +209,42 @@
     font-weight: 500;
   }
 }
+
+@media (max-width: 500px) {
+  
+  .timer {
+    display: flex;
+    flex: auto;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: auto;
+  }
+  
+  .timerItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0.5rem;
+    background-color: #ffffff08;
+    border-radius: 0.5rem;
+    padding: 0.2rem 0.2rem;
+    height: 1rem;
+    min-width: auto;
+  }
+  
+  .timerNumber {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-right: auto;
+    min-width: 25px;
+    padding: auto;
+    text-align: center;
+  }
+  
+  .timerText {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}

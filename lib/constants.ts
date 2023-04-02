@@ -58,7 +58,7 @@ export const NAVIGATION = [
   //},
   {
     name: 'Register',
-    route: '/register'
+    route: 'https://konfhub.com/s-23'
   },
   {
     name: 'Contact',

@@ -67,15 +67,15 @@ function Timer() {
 			</div>
 			<div className={styles.timerItem}>
 				<span className={styles.timerNumber}>{hours}</span>
-				<span className={styles.timerText}>Hours</span>
+				<span className={styles.timerText}>Hrs</span>
 			</div>
 			<div className={styles.timerItem}>
 				<span className={styles.timerNumber}>{minutes}</span>
-				<span className={styles.timerText}>Minutes</span>
+				<span className={styles.timerText}>Mins</span>
 			</div>
 			<div className={styles.timerItem}>
 				<span className={styles.timerNumber}>{seconds}</span>
-				<span className={styles.timerText}>Seconds</span>
+				<span className={styles.timerText}>Secs</span>
 			</div>
 		</div>
 	)

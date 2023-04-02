@@ -15,6 +15,8 @@
  */
 
 import { SSRProvider, OverlayProvider } from 'react-aria';
+import { SessionProvider } from 'next-auth/react';
+import { Session} from 'next-auth';
 import '@styles/global.css';
 import '@styles/nprogress.css';
 import '@styles/chrome-bug.css';
@@ -24,7 +26,7 @@ import ResizeHandler from '@components/resize-handler';
 import { useEffect } from 'react';
 import { HMSRoomProvider } from '@100mslive/react-sdk';
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }: AppProps<{ session: Session }>) {
   useEffect(() => {
     document.body.classList?.remove('loading');
   }, []);
@@ -32,15 +34,16 @@ export default function App({ Component, pageProps }: AppProps) {
   const AppMainComponent = Component as any;
 
   return (
-    <SSRProvider>
-      <OverlayProvider>
-        <HMSRoomProvider>
-          
-          <AppMainComponent {...pageProps} />
-          <ResizeHandler />
-          <NProgress />
-        </HMSRoomProvider>
-      </OverlayProvider>
-    </SSRProvider>
+    <SessionProvider session={pageProps.session}>
+      <SSRProvider>
+        <OverlayProvider>
+          <HMSRoomProvider>
+            <AppMainComponent {...pageProps} />
+            <ResizeHandler />
+            <NProgress />
+          </HMSRoomProvider>
+        </OverlayProvider>
+      </SSRProvider>
+    </SessionProvider>
   );
 }
