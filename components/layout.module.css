@@ -16,7 +16,7 @@
 
 .background {
   background: 'transparent';
-  background-image: url("../public/background.jpg");
+  background-image: url("../public/wireframe.png");
   background-size: cover;
   color: #fff;
   min-height: 100vh;
