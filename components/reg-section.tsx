@@ -80,20 +80,11 @@ export default function RegSection({ reg }: Props) {
             <h2 className={styles['bio-header']}>Organisers</h2>
             <p className={styles.bio}>{reg.organisers}</p>
             <h3 className={styles['socials-header']}>Register</h3>
-            {reg.link ? (
-              <a
-                aria-label="Register"
-                href={reg.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <TwitterIcon />
-              </a>
-            ) : (
-              <span className={styles.disabled}>
-                <TwitterIcon />
+            <button useRef={reg.link} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-lg font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-700 to-blue-900 group-hover:from-red-700 group-hover:to-blue-900 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+              <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                  Register at KonfHub
               </span>
-            )}
+            </button>
           </div>
         </div>
       </div>

@@ -25,6 +25,7 @@ import styles from './form.module.css';
 import useEmailQueryParam from '@lib/hooks/use-email-query-param';
 import { register } from '@lib/user-api';
 import Captcha, { useCaptcha } from './captcha';
+import { useSession, signIn } from 'next-auth/react';
 
 type FormState = 'default' | 'loading' | 'error';
 
@@ -40,6 +41,7 @@ export default function Form({ sharePage }: Props) {
   const [formState, setFormState] = useState<FormState>('default');
   const { setPageState, setUserData } = useConfData();
   const router = useRouter();
+  const { data, status } = useSession();
   const {
     ref: captchaRef,
     execute: executeCaptcha,
@@ -47,6 +49,7 @@ export default function Form({ sharePage }: Props) {
     isEnabled: isCaptchaEnabled
   } = useCaptcha();
 
+  
   const handleRegister = useCallback(
     (token?: string) => {
       register(email, token)
@@ -131,6 +134,23 @@ export default function Form({ sharePage }: Props) {
 
   useEmailQueryParam('email', setEmail);
 
+  if (status === 'loading') {
+    return(
+      <form
+      className={cn(styles.form, {
+        [styles['share-page']]: sharePage,
+        [styleUtils.appear]: !errorTryAgain,
+        [styleUtils['appear-fifth']]: !errorTryAgain && !sharePage,
+        [styleUtils['appear-third']]: !errorTryAgain && sharePage
+      })}
+    >
+      <button type="button" className="text-white bg-[#242424] hover:bg-[#000000]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-lg px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2">
+          Please wait..
+      </button>
+    </form>
+    )
+  }
+
   return formState === 'error' ? (
     <div
       className={cn(styles.form, {
@@ -160,36 +180,11 @@ export default function Form({ sharePage }: Props) {
       })}
       onSubmit={onSubmit}
     >
-      <div className={styles['form-row']}>
-        <label
-          htmlFor="email-input-field"
-          className={cn(styles['input-label'], {
-            [styles.focused]: focused
-          })}
-        >
-          <input
-            className={styles.input}
-            autoComplete="off"
-            type="email"
-            id="email-input-field"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            onFocus={() => setFocused(true)}
-            onBlur={() => setFocused(false)}
-            placeholder="Enter email to register free"
-            aria-label="Your email address"
-            required
-          />
-        </label>
-        <button
-          type="submit"
-          className={cn(styles.submit, styles.register, styles[formState])}
-          disabled={formState === 'loading'}
-        >
-          {formState === 'loading' ? <LoadingDots size={4} /> : <>Register</>}
+        <button onClick={()=>location.href = 'https://www.yoursite.com'} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-lg font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-700 to-blue-900 group-hover:from-red-700 group-hover:to-blue-900 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+          <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+              Register at KonfHub
+          </span>
         </button>
-      </div>
-      <Captcha ref={captchaRef} onVerify={handleRegister} />
     </form>
   );
 }
