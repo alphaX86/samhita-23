@@ -180,7 +180,7 @@ export default function Form({ sharePage }: Props) {
       })}
       onSubmit={onSubmit}
     >
-        <button onClick={()=>location.href = 'https://www.yoursite.com'} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-lg font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-700 to-blue-900 group-hover:from-red-700 group-hover:to-blue-900 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+        <button onClick={()=>location.href = 'https://konfhub.com/s-23'} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-lg font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-700 to-blue-900 group-hover:from-red-700 group-hover:to-blue-900 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
           <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
               Register at KonfHub
           </span>
