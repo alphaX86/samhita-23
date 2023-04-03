@@ -26,7 +26,7 @@ module.exports = {
         }
       },
       backgroundImage: {
-        'grid-pattern': "url('../public/bg-grid.jpg')", 
+        'grid-pattern': "url('../public/card.png')", 
       },
       fontSize: {
         xxs: '10px',
