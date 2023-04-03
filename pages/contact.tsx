@@ -35,7 +35,7 @@ export default function Contact() {
         <Header hero="Contact" description={meta.description} />
         <div className="border-2 border-solid rounded-md p-3 flex flex-col items-center justify-center h-80 w-auto">
           <h1>Ask us!</h1>
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdhCXzQLekK9zD7rumd7S3ksUDBCRTHcZqixwXtVxZ45TKkig/viewform?embedded=true" width="2000" height="3000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdhCXzQLekK9zD7rumd7S3ksUDBCRTHcZqixwXtVxZ45TKkig/viewform?embedded=true" width="2000" height="3000">Loading…</iframe>
         </div>
         <br></br>
         <div className={styles.contact}>
