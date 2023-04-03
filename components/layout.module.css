@@ -16,8 +16,8 @@
 
 .background {
   background: 'transparent';
-  background-image: url("../public/wireframe.png");
-  background-size: cover;
+  background-image: url("../public/bg-desktop.jpeg");
+  background-repeat: no-repeat;
   color: #fff;
   min-height: 100vh;
   min-height: var(--100vh);
@@ -70,6 +70,18 @@
   .header-right {
     display: initial;
   }
+
+  .background {
+    background: 'transparent';
+    background-image: url("../public/bg-mobile.jpeg");
+    background-repeat: no-repeat;
+    color: #fff;
+    min-height: 100vh;
+    min-height: var(--100vh);
+    display: flex;
+    flex-direction: column;
+    background-size: 100% 100%;
+  }  
 }
 
 .tabs {
@@ -86,6 +98,18 @@
   .tabs > a:nth-child(3),
   .tabs > a:nth-child(4) {
     display: inline-flex;
+  }
+
+  .background {
+    background: 'transparent';
+    background-image: url("../public/bg-desktop.jpeg");
+    background-repeat: no-repeat;
+    color: #fff;
+    min-height: 100vh;
+    min-height: var(--100vh);
+    display: flex;
+    flex-direction: column;
+    background-size: 100% 100%;
   }
 }
 

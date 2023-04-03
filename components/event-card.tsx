@@ -47,7 +47,6 @@ export default function EventCard({ talk: { title, speaker, start, end, linkid }
 
   return (
     <div key={title} className={styles.talk}>
-      {showTime && <p className={styles.time}>{startAndEndTime || <>&nbsp;</>}</p>}
       <Link href={firstSpeakerLink}>
         <a
           className={cn(styles.card, {
