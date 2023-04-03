@@ -41,13 +41,8 @@ export default function SpeakersGrid({ speakers }: Props) {
                 <h2 className="text-2xl font-bold mb-2 text-white">{speaker.name}</h2>
                 <p className="text-white-600 text-base mb-4">{speaker.title}</p>
                 <div className="flex items-center">
-                  <img
-                    className="w-10 h-10 rounded-full mr-4"
-                    src={speaker.image.url}
-                    alt="Avatar"
-                  />
                   <div className="text-sm">
-                    <p className="text-white-700 font-bold leading-none">{speaker.company}</p>
+                    <p className="text-white-300 font-bold leading-none">{speaker.company}</p>
                   </div>
                 </div>
               </div>
