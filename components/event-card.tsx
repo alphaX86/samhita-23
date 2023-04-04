@@ -43,7 +43,7 @@ export default function EventCard({ talk: { title, speaker, start, end, linkid }
     setStartAndEndTime(`${formatDate(start)} – ${formatDate(end)}`);
   }, [end, start]);
 
-  const firstSpeakerLink = `/reg/${linkid}`;
+  const firstSpeakerLink = `/evreg/${linkid}`;
 
   return (
     <div key={title} className={styles.talk}>

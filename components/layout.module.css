@@ -66,20 +66,21 @@
   display: none;
 }
 
-@media screen and (min-width: 770px) {
+@media screen and (min-width: 70px) {
   .header-right {
     display: initial;
   }
 
   .background {
     background: 'transparent';
-    background-image: url("../public/bg-mobile.jpeg");
+    background-image: url("../public/bg-desktop.png");
     background-repeat: no-repeat;
     color: #fff;
     min-height: 100vh;
     min-height: var(--100vh);
     display: flex;
     flex-direction: column;
+    background-attachment: fixed;
     background-size: 100% 100%;
   }  
 }
@@ -102,13 +103,14 @@
 
   .background {
     background: 'transparent';
-    background-image: url("../public/bg-desktop.jpeg");
+    background-image: url("../public/bg-desktop.png");
     background-repeat: no-repeat;
     color: #fff;
     min-height: 100vh;
     min-height: var(--100vh);
     display: flex;
     flex-direction: column;
+    background-attachment: fixed;
     background-size: 100% 100%;
   }
 }

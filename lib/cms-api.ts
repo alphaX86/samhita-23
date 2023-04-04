@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Job, Sponsor, Stage, Speaker, Reg, Event, Workshop } from '@lib/types';
+import { Job, Sponsor, Stage, Speaker, Reg, Event, Workshop, EvReg } from '@lib/types';
 
 import * as datoCmsApi from './cms-providers/dato';
 import * as contentfulApi from './cms-providers/contentful';
@@ -25,6 +25,7 @@ let cmsApi: {
   getAllSponsors: () => Promise<Sponsor[]>;
   getAllJobs: () => Promise<Job[]>;
   getAllReg: () => Promise<Reg[]>;
+  getAllEvReg: () => Promise<EvReg[]>;
   getAllEvents: () => Promise<Event[]>;
   getAllWorkshops: () => Promise<Workshop[]>;
 };
@@ -38,6 +39,7 @@ if (process.env.PRISMIC_REPO_ID) {
     getAllSponsors: () => Promise.resolve([]),
     getAllJobs: () => Promise.resolve([]),
     getAllReg: () => Promise.resolve([]),
+    getAllEvReg: () => Promise.resolve([]),
     getAllEvents: () => Promise.resolve([]),
     getAllWorkshops: () => Promise.resolve([])
   };
@@ -61,6 +63,10 @@ export async function getAllJobs(): Promise<Job[]> {
 
 export async function getAllReg(): Promise<Reg[]> {
   return cmsApi.getAllReg();
+}
+
+export async function getAllEvReg(): Promise<EvReg[]> {
+  return cmsApi.getAllEvReg();
 }
 
 export async function getAllEvents(): Promise<Event[]> {

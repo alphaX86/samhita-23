@@ -79,6 +79,118 @@ export interface EventDocumentDataScheduleItem {
  * @typeParam Lang - Language API ID of the document.
  */
 export type EventDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<EventDocumentData>, "event", Lang>;
+/** Content for Event Reg documents */
+interface EvregDocumentData {
+    /**
+     * Name field in *Event Reg*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: Speaker's name
+     * - **API ID Path**: evreg.name
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    name: prismicT.TitleField;
+    /**
+     * Image field in *Event Reg*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: evreg.image
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
+    /**
+     * Title field in *Event Reg*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: Role
+     * - **API ID Path**: evreg.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Bio field in *Event Reg*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: Bio
+     * - **API ID Path**: evreg.bio
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    bio: prismicT.RichTextField;
+    /**
+     * Twitter field in *Event Reg*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: Twitter profile URL
+     * - **API ID Path**: evreg.link
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    link: prismicT.LinkField;
+    /**
+     * Location field in *Event Reg*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: evreg.location
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    location: prismicT.RichTextField;
+    /**
+     * Organisers field in *Event Reg*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: evreg.organisers
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    organisers: prismicT.RichTextField;
+    /**
+     * Rules field in *Event Reg*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: evreg.rules
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    rules: prismicT.RichTextField;
+    /**
+     * Prize field in *Event Reg*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: evreg.prize
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    prize: prismicT.RichTextField;
+}
+/**
+ * Event Reg document from Prismic
+ *
+ * - **API ID**: `evreg`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type EvregDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<EvregDocumentData>, "evreg", Lang>;
 /** Content for Reg documents */
 interface RegDocumentData {
     /**
@@ -602,12 +714,12 @@ export interface WorkshopDocumentDataScheduleItem {
  * @typeParam Lang - Language API ID of the document.
  */
 export type WorkshopDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<WorkshopDocumentData>, "workshop", Lang>;
-export type AllDocumentTypes = EventDocument | RegDocument | SpeakerDocument | SponsorDocument | StageDocument | TalkDocument | TestDocument | WorkshopDocument;
+export type AllDocumentTypes = EventDocument | EvregDocument | RegDocument | SpeakerDocument | SponsorDocument | StageDocument | TalkDocument | TestDocument | WorkshopDocument;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { EventDocumentData, EventDocumentDataScheduleItem, EventDocument, RegDocumentData, RegDocument, SpeakerDocumentData, SpeakerDocument, SponsorDocumentData, SponsorDocument, StageDocumentData, StageDocumentDataScheduleItem, StageDocument, TalkDocumentData, TalkDocumentDataSpeakersItem, TalkDocument, TestDocumentData, TestDocument, WorkshopDocumentData, WorkshopDocumentDataScheduleItem, WorkshopDocument, AllDocumentTypes };
+        export type { EventDocumentData, EventDocumentDataScheduleItem, EventDocument, EvregDocumentData, EvregDocument, RegDocumentData, RegDocument, SpeakerDocumentData, SpeakerDocument, SponsorDocumentData, SponsorDocument, StageDocumentData, StageDocumentDataScheduleItem, StageDocument, TalkDocumentData, TalkDocumentDataSpeakersItem, TalkDocument, TestDocumentData, TestDocument, WorkshopDocumentData, WorkshopDocumentDataScheduleItem, WorkshopDocument, AllDocumentTypes };
     }
 }

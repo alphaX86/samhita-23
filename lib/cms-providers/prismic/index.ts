@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Job, Sponsor, Stage, Speaker, Reg, Event, Workshop } from '@lib/types';
+import { Job, Sponsor, Stage, Speaker, Reg, Event, Workshop, EvReg } from '@lib/types';
 import { richTextAsText, getLinkUrl } from './utils';
 
 const API_REF_URL = `https://${process.env.PRISMIC_REPO_ID}.prismic.io/api/v2`;
@@ -161,6 +161,60 @@ export async function getAllReg(): Promise<Reg[]> {
       link: getLinkUrl(edge.node.link),
       location: richTextAsText(edge.node.location),
       organisers: richTextAsText(edge.node.organisers),
+      image: {
+        url:
+          edge.node.image?.url.replace('compress,format', 'format') || 'https://images.prismic.io'
+      },
+      talk: {
+        title: edge.node.talk?.title ? richTextAsText(edge.node.talk.title) : '',
+        description: edge.node.talk?.description ? richTextAsText(edge.node.talk.description) : ''
+      }
+    };
+  });
+
+  return reformatedData;
+}
+
+export async function getAllEvReg(): Promise<EvReg[]> {
+  const data = await fetchCmsAPI(`
+    {
+      allEvregs(first: 100) {
+        edges {
+          node {
+            name
+            bio
+            title
+            link {
+              _linkType
+              ...on _ExternalLink {
+                url
+              }
+            }
+            image
+            _meta {
+              uid
+            }
+            location
+            organisers
+            prize
+            rules
+          }
+        }
+      }
+    }
+  `);
+
+  const reformatedData = data.allEvregs.edges.map((edge: any) => {
+    return {
+      name: richTextAsText(edge.node.name),
+      bio: richTextAsText(edge.node.bio),
+      slug: edge.node._meta.uid,
+      title: richTextAsText(edge.node.title),
+      link: getLinkUrl(edge.node.link),
+      location: richTextAsText(edge.node.location),
+      organisers: richTextAsText(edge.node.organisers),
+      prize: richTextAsText(edge.node.prize),
+      rules: richTextAsText(edge.node.rules),
       image: {
         url:
           edge.node.image?.url.replace('compress,format', 'format') || 'https://images.prismic.io'

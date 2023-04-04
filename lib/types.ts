@@ -45,6 +45,21 @@ export type Reg = {
   imageSquare: Image;
 };
 
+export type EvReg = {
+  name: string;
+  bio: string;
+  title: string;
+  slug: string;
+  link: string;
+  location: string;
+  organisers: string;
+  rules: string;
+  prize: string;
+  reg: Reg;
+  image: Image;
+  imageSquare: Image;
+};
+
 export type Stage = {
   name: string;
   slug: string;
