@@ -59,15 +59,15 @@ export default function EvregSection({ reg }: Props) {
         </a>
       </Link>
       <div key={reg.name} className={styles.container}>
-        <div style={{ minWidth: '300px' }}>
+        <div style={{ minWidth: '400px' }}>
           <Image
             alt={reg.name}
             title={reg.name}
             src={reg.image.url}
             className={styles.image}
             loading="lazy"
-            height={200}
-            width={200}
+            height={300}
+            width={300}
           />
         </div>
         <div className={styles['reg-details']}>
