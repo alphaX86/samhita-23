@@ -17,7 +17,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import cn from 'classnames';
-import GithubIcon from '@components/icons/icon-github';
+import IconLinkedin from '@components/icons/icon-linkedin';
 import { Speaker } from '@lib/types';
 import { getSortedPostsData } from '@lib/posts';
 import styles from './speaker-section.module.css';
@@ -80,31 +80,30 @@ export default function SpeakerSection({ speaker }: Props) {
             <h3 className={styles['socials-header']}>Social Media</h3>
             {speaker.twitter ? (
               <a
-                aria-label="Twitter"
+                aria-label="Linkedin"
                 href={speaker.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <TwitterIcon />
+                <svg
+                  className="w-6 h-6 text-blue-500 fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512">
+                  <path
+                    d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
+                  ></path>
+                </svg>
               </a>
             ) : (
               <span className={styles.disabled}>
-                <TwitterIcon />
-              </span>
-            )}
-            {speaker.github ? (
-              <a
-                aria-label="GitHub"
-                className={styles.githubIcon}
-                href={speaker.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <GithubIcon color="#D8D8D8" size={24} />
-              </a>
-            ) : (
-              <span className={cn(styles.githubIcon, styles.disabled)}>
-                <GithubIcon color="#D8D8D8" size={24} />
+                <svg
+                  className="w-6 h-6 text-blue-500 fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512">
+                  <path
+                    d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
+                  ></path>
+                </svg>
               </span>
             )}
           </div>

@@ -46,7 +46,7 @@ export default function Contact() {
           The fest will be held on 15th and 16th April 2023. <br />
           <br />
           </p>
-          <p className="text-white">Instagram: <a className={styles.email} href="https://instagram.com/ita_mit_india">@ita_mit_india</a></p>
+          <p className="text-white">Instagram: <a className={styles.email} href="https://instagram.com/samhita_mit">@samhita_mit</a></p>
           Contact Email:{' '}
           <a className={styles.email} href="mailto:chairmanita@mitindia.edu">
           chairmanita@mitindia.edu
