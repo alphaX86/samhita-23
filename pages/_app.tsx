@@ -25,6 +25,7 @@ import NProgress from '@components/nprogress';
 import ResizeHandler from '@components/resize-handler';
 import { useEffect } from 'react';
 import { HMSRoomProvider } from '@100mslive/react-sdk';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function App({ Component, pageProps }: AppProps<{ session: Session }>) {
   useEffect(() => {
@@ -39,6 +40,7 @@ export default function App({ Component, pageProps }: AppProps<{ session: Sessio
         <OverlayProvider>
           <HMSRoomProvider>
             <AppMainComponent {...pageProps} />
+            <Analytics />
             <ResizeHandler />
             <NProgress />
           </HMSRoomProvider>
